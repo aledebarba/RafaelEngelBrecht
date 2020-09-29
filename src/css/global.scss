@@ -1,0 +1,97 @@
+
+@import './node_modules/bootstrap/scss/bootstrap-utilities.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+:root {
+  --scroll-checkpoint: 200;
+  --page-scroll-y: 0;
+  --css-spy-scroll-flag: 0;
+}
+
+body {
+  --font-1-name: "Roboto";
+  --font-1-light: 300;
+  --font-1-normal: 400;
+  --font-1-bold: 900;
+
+  --font-2-name: "Times";
+  --font-2-light: light;
+  --font-2-normal: normal;
+  --font-2-bold: bold;
+
+  --font-1: normal normal normal 16px/20px var(--font-1-name), Trebuchet, Arial, sans-serif;
+  --font-2: normal normal normal 16px/20px var(--font-2-name), Georgia, Serif;
+  --font-1-color: #2b2b2b;
+  --font-2-color: rebecapurple;
+
+  --navbar-brackground-color: #00000000;
+
+  scroll-behavior: smooth;
+  background-color: #aac8ffaa;
+  font: var(--font-1);
+  color: var(--font-1-color);
+}
+
+.css-spy-not-scrolled {
+  --navbar-background-color:#33333300;
+}
+.css-spy-scrolled {
+  --navbar-background-color: #333333ff;
+}
+
+.navbar {
+  transition: background-color 0.1s linear;
+  background-color: var(--navbar-background-color);
+}
+
+h1 {
+  font: var(--font-1);
+  font-weight: var(--font-1-bold);
+  font-size: 2.5rem;
+  line-height: 2.8rem;
+}
+h2 {
+  font-family: var(--font-1);
+  color: var(--font-1-color);
+  font-size: 2.5rem;
+}
+h3 {
+  font: var(--font-1);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  video {
+    max-height: 50vh;
+    @include media-breakpoint-up(md) {
+      max-height: 100vh;
+    }
+  }
+}
+
+#heroheader {
+    --bg-gradient-color-1: #00F3B9;
+    --bg-gradient-color-2: #2187FF;
+    padding-top: 180px;
+    background: linear-gradient(39.97deg, var(--bg-gradient-color-1) 0.79%,  var(--bg-gradient-color-2) 79.29%);
+    
+    h3 {
+        text-transform: uppercase;
+        font-size: calc(0.8rem + .6vw);
+        line-height: 36px;
+        text-align: center;
+    }
+    h1 {
+        text-align: center;
+    }
+    button { 
+        margin: 32px auto;
+        display: block;
+    }
+
+    
+}
