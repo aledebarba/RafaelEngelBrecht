@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `BGA Projeto`,
-    description: `Desenvolvimento de projetos BIM.`,
-    author: `@gatsbyjs`,
+    title: `My Site Title`,
+    description: `This is my site description with details.`,
+    author: `@aledebarba`,
   },
   plugins: [
     {
@@ -31,7 +31,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/brand-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

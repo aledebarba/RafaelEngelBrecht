@@ -1,6 +1,15 @@
 
 @import './node_modules/bootstrap/scss/bootstrap-utilities.scss';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+
+
+// sass variables form color theming
+$pageBackgroundHex : #aac8ffaa;
+$footerBackground: darken($pageBackgroundHex, 15%);
+$formBackground: $pageBackgroundHex;
+$formInputBorder: darken($pageBackgroundHex, 65%);
+$disclaimerBackground: darken($pageBackgroundHex, 65%);
+
 :root {
   --scroll-checkpoint: 200;
   --page-scroll-y: 0;
@@ -12,50 +21,71 @@ body {
   --font-1-light: 300;
   --font-1-normal: 400;
   --font-1-bold: 900;
+  --font-1-base-size: 32px;
 
   --font-2-name: "Times";
   --font-2-light: light;
   --font-2-normal: normal;
   --font-2-bold: bold;
+  --font-2-base-size: 32px;
 
   --font-1: normal normal normal 16px/20px var(--font-1-name), Trebuchet, Arial, sans-serif;
   --font-2: normal normal normal 16px/20px var(--font-2-name), Georgia, Serif;
   --font-1-color: #2b2b2b;
+  --font-1-color-light: #cfcfcf;
   --font-2-color: rebecapurple;
 
   --navbar-brackground-color: #00000000;
-
+  --page-background-hex: #{$pageBackgroundHex};
+ 
   scroll-behavior: smooth;
-  background-color: #aac8ffaa;
+  background-color:var(--page-background-hex);
   font: var(--font-1);
   color: var(--font-1-color);
 }
 
 .css-spy-not-scrolled {
-  --navbar-background-color:#33333300;
+  --navbar-background-color:#333333cc;
+  --navbar-logo-height: 32px;
+  @include media-breakpoint-up(md) {
+    --navbar-background-color:#33333344;
+  }
 }
 .css-spy-scrolled {
   --navbar-background-color: #333333ff;
+  --navbar-logo-height: 24px;
 }
 
 .navbar {
-  transition: background-color 0.1s linear;
+  transition: background-color 0.2s linear;
   background-color: var(--navbar-background-color);
+
+  img {
+    transition: height 0.2s linear;
+    height: var(--navbar-logo-height);
+  }
+   
+  .nav-item {
+    padding: 4px;
+  }
 }
 
 h1 {
   font: var(--font-1);
   font-weight: var(--font-1-bold);
-  font-size: 2.5rem;
+  font-size: calc(var(--font-1-base-size)*1.2);
   line-height: 2.8rem;
 }
 h2 {
   font-family: var(--font-1);
   color: var(--font-1-color);
-  font-size: 2.5rem;
+  font-size: calc(var(--font-1-base-size)*0.8);
 }
 h3 {
   font: var(--font-1);
+  font-size: calc(var(--font-1-base-size)*0.6);
+  font-weight: var(--font-1-bold);
+  text-transform: uppercase;
 }
 
 .video-container {
@@ -73,25 +103,139 @@ h3 {
   }
 }
 
-#heroheader {
+#header, #heroheader {
     --bg-gradient-color-1: #00F3B9;
     --bg-gradient-color-2: #2187FF;
-    padding-top: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(39.97deg, var(--bg-gradient-color-1) 0.79%,  var(--bg-gradient-color-2) 79.29%);
+    height: 100vh;
+    overflow: hidden;
     
+    h1 {
+        text-align: center;
+    }
+
     h3 {
         text-transform: uppercase;
         font-size: calc(0.8rem + .6vw);
         line-height: 36px;
         text-align: center;
     }
-    h1 {
-        text-align: center;
-    }
+
     button { 
         margin: 32px auto;
         display: block;
-    }
+    }   
+}
 
-    
+#header {
+  height: 80vh;
+}
+
+#Footer {
+  background-color: darken($pageBackgroundHex, 15%);
+  .disclaimer {
+    background-color: darken($pageBackgroundHex, 65%);
+    color: var(--font-1-color-light);
+    line-height: 0.9rem;
+  }
+}
+
+.contactform {
+  position: relative;
+  background-color: var(--page-background-hex);
+  padding: 24px;
+  border-radius: 8px; 
+
+  label {
+    font-size: calc(var(--font-2-base-size)*0.4);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 8px; 
+
+    small {
+      margin-bottom: 0;
+      color: var(--font-1-color);
+      opacity: 0.5;
+    }
+  input, select, textarea {
+    padding: 4px;
+    outline: none;
+    border: 1px solid $formInputBorder;
+    border-radius: 4px;
+  }
+  input:focus, select:focus, textarea:focus {
+    box-shadow: inset 0px 0px 3px 0px $formInputBorder;
+    color: black;
+  }
+  }
+  .form-status-sending {
+    position: absolute;
+    background-color: rgba(96, 153, 96, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+  } 
+  .form-status-sending:after {
+    content: '⌛';
+    position: absolute;
+    font-size: 3rem;
+    transform-origin: center;
+    top: 45%; left:45%; transform: translate(-50%,-50%);
+    animation: rotateTime 1s linear infinite;
+  }
+  @keyframes rotateTime {
+    0%  { transform: rotate(180deg); }
+    15% { transform: rotate(180deg);}
+    85% { transform: rotate(180deg); }    
+    100% { transform: rotate(360deg); }    
+  }
+
+  .form-status-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 83, 21, 0.486);
+    box-shadow: inset 0px 0px 25px 0px coral; 
+  }
+  .form-status-success {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(20, 238, 0, 0.486);
+    box-shadow: inset 0px 0px 50px 0px rgb(80, 255, 197); 
+    opacity: 0;
+    animation: animateOpacity 4s linear;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .form-status-success:after {
+    content: '✔️ mensagem enviada!';
+    font-size: 1rem;
+    opacity: 0;
+    animation: animateOpacity 5s linear;
+    padding: 16px;
+    background-color: rgb(157, 218, 175);
+    border: 1px solid green;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px 0px black;
+  }
+  @keyframes animateOpacity {
+    0%    { opacity: 1; display: block; }
+    80%   { opacity: 1; }
+    100%  { opacity: 0; }     
+  }
 }
