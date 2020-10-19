@@ -1,8 +1,6 @@
 
 import React, {useEffect} from "react"
 import PropTypes from "prop-types"
-import Footer from "./footer"
-import {UsingCustomTheme} from './themeprovider'
 import {cssSpy} from './cssspy';
 
 const Layout = (props) => {
@@ -12,12 +10,11 @@ const Layout = (props) => {
   }, [])
 
   return (
-    <UsingCustomTheme>
+    <>
         <div id="PageTop">
           {props.children}
         </div>
-      <Footer/>
-    </UsingCustomTheme>
+    </>
   )
 }
 export default Layout

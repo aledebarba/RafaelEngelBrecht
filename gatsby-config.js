@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/landing-page-starter`,
   siteMetadata: {
     title: `My Site Title`,
     description: `This is my site description with details.`,

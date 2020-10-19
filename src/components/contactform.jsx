@@ -4,34 +4,30 @@ import emailjs from 'emailjs-com';
 
 const mail = {
     to: "destino@mailserver.com",
-    subject: "Contact via website",
+    subject: "Website contact",
     template: "template_vxdqg4r",
     service: "service_o1770tn",
     user: "user_ob7ANYoUgam3fIOOSo6f7"
 }
 
 var templateParams = {
-   form_name: 'James',
-   form_subject: 'Check this out!',
-   form_message: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, eius?',
+   form_name: 'your name',
+   form_subject: 'default subject',
+   form_message: 'this should be the user message',
    reply_to: 'donotreply@server.com'
 };
 
 
 const ContactForm = (props) => {
 
-   const mailto = props.mailto ? props.mailto : mail.to;
-   const subject = props.subject ? props.subject : mail.subject;
-
    const [ formState, setFormState ] = useState('form-status-none');
-
    const { register, handleSubmit, errors, reset } = useForm();
    const onSubmit = data => {
       setFormState('form-status-sending');
-      templateParams.form_name = data.name;
+      templateParams.form_name    = data.name;
       templateParams.form_subject = data.subject;
       templateParams.form_message = data.message;
-      templateParams.reply_to = data.contactemail;
+      templateParams.reply_to     = data.contactemail;
 
       emailjs.send(mail.service, mail.template, templateParams, mail.user)
 	      .then((response) => {

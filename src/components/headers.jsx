@@ -1,8 +1,9 @@
 import React from "react"
 
-const Header = ({children}) => {
+const Header = (props) => {
+  var {children, other} = props
   return (
-  <header id="header">
+  <header id="header" {...other}>
     {children}
   </header>
 )

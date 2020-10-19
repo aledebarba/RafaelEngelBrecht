@@ -4,6 +4,7 @@ import Layout from '../layout'
 import Section from '../sections'
 import Header from '../headers'
 import Navbar from '../navbar'
+import Footer from '../content/footer'
 import About from '../content/about'
 import Partners from '../content/partners'
 import Portfolio from '../content/portfolio'
@@ -40,7 +41,7 @@ const FiveSectionsLayout = () => (
                         <p className='btn btn-primary'>More about us</p>
                     </AnchorLink>
                 </div>
-                <div className="col-sm-12 col-md-6 order-first order-md-last p-4 pb-0 p-md-0">
+                <div className="col-sm-12 col-md-6 order-first order-md-last p-5 p-md-0">
                     <Image src="header-illustration.png" alt="illustrated woman holding phone" />
                 </div>
             </div>
@@ -51,6 +52,7 @@ const FiveSectionsLayout = () => (
     <Section id="Partners"><Partners /></Section>
     <Section id="Portfolio"><Portfolio /></Section>
     <Section id="Team"><Team /></Section>
+    <Footer/>
   </Layout>
 )
 

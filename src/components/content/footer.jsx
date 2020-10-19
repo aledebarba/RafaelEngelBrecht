@@ -1,15 +1,11 @@
 import React from "react"
-import Disclaimer from './disclaimer'
-import Image from './image'
-import ContactForm from './contactform'
-import SocialNetworks from './socialnetworks'
+import Disclaimer from '../disclaimer'
+import Image from '../image'
+import ContactForm from '../contactform'
+import SocialNetworks from '../socialnetworks'
 
 const Footer = () => {
   
-  const onSubmit = () => false;
-  const handleSubmit = (data) => false;
-  const register = (data) => false;
-
   return (
   <footer id="Footer">
     <div className="container-fluid py-5">
@@ -36,7 +32,6 @@ const Footer = () => {
                 youtube="https://youtube.com/"
                 tiktok="https://tiktok.com/"
                 github="https://github.com/"
-                instagram="https://instagram.com/"
                 pinterest="https://pinterest.com/"
                 whatsapp="https://web.whatsapp.com/"
                 telegram="https://telegram.com/"

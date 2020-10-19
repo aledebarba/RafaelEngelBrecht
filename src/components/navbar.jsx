@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import logo from '../images/brand-menu-icon.png';
 
@@ -19,8 +20,8 @@ const Navbar = (props) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top css-spy-scroll">
             <div className="container-fluid">
-                <AnchorLink className="navbar-brand" to="/">
-                    <img src={logo} alt="Land Page Logo" />
+                <AnchorLink className="navbar-brand" to={withPrefix("/")}>
+                    <img src={logo} alt="Landing Page Logo" />
                 </AnchorLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                    <span className="navbar-toggler-icon"></span>
@@ -29,7 +30,7 @@ const Navbar = (props) => {
                     <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
                         {menuLinks.map(link => 
                             <li className="nav-item"  key={link.label+link.to}>
-                                <AnchorLink className="nav-link active" to={link.to}>{link.label}</AnchorLink>
+                                <AnchorLink className="nav-link active" to={withPrefix(link.to)}>{link.label}</AnchorLink>
                             </li>
                         )}
                     </ul>
@@ -39,7 +40,7 @@ const Navbar = (props) => {
     )
 }
 export default Navbar
-
+/*
 const DropDown = () =>  
 <li className="nav-item dropdown">
     <a className="nav-link dropdown-toggle" href="#dropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -62,3 +63,4 @@ const DisabledItem = () =>
 <li className="nav-item">
     <AnchorLink className="nav-link disabled" to="/" tabIndex="-1" aria-disabled="true">Disabled</AnchorLink>
 </li>
+*/

@@ -22,24 +22,47 @@ const SocialNetworks = (props) => {
     return (
     <IconStyleWrapper size={props.size} center>
         <ul>
-            { props.twitter     && <li><a href={props.twitter} target="_blank" rel="noreferrer"><Twitter size={size} /></a></li> }
-            { props.facebook    && <li><a href={props.facebook} target="_blank" rel="noreferrer"><FacebookF size={size} /></a></li> }
-            { props.youtube     && <li><a href={props.youtube} target="_blank" rel="noreferrer"><Youtube size={size} /></a></li> }
-            { props.tiktok      && <li><a href={props.tiktok} target="_blank" rel="noreferrer"><LogoTiktok size={size} /></a></li> }
-            { props.github      && <li><a href={props.github} target="_blank" rel="noreferrer"><Github size={size}/></a></li> }
-            { props.instagram   && <li><a href={props.instagram} target="_blank" rel="noreferrer"><Instagram size={size}/></a></li> }
-            { props.pinterest   && <li><a href={props.pinterest} target="_blank" rel="noreferrer"><PinterestP size={size} /></a></li> }
-            { props.whatsapp    && <li><a href={props.whatsapp} target="_blank" rel="noreferrer"><Whatsapp size={size} /></a></li> }
-            { props.telegram    && <li><a href={props.telegram} target="_blank" rel="noreferrer"><TelegramPlane size={size}/></a></li> }
-            { props.skype       && <li><a href={props.skype} target="_blank" rel="noreferrer"><Skype size={size}/></a></li> }
-            { props.email       && <li><a href={"mailto:"+props.email} rel="noreferrer"><Gmail size={size}/></a></li> }
-            { props.linkedin    && <li><a href={props.linkedin} target="_blank" rel="noreferrer"><Linkedin size={size} /></a></li> }
+            { props.twitter     && <li><a href={props.twitter} target="_blank" rel="noreferrer" aria-label="Go to twitter profile"><Twitter size={size} /></a></li> }
+            { props.facebook    && <li><a href={props.facebook} target="_blank" rel="noreferrer" aria-label="Go to facebook profile"><FacebookF size={size} /></a></li> }
+            { props.youtube     && <li><a href={props.youtube} target="_blank" rel="noreferrer" aria-label="Go to youtube profile"><Youtube size={size} /></a></li> }
+            { props.tiktok      && <li><a href={props.tiktok} target="_blank" rel="noreferrer" aria-label="Go to tiktok profile"><LogoTiktok size={size} /></a></li> }
+            { props.github      && <li><a href={props.github} target="_blank" rel="noreferrer" aria-label="Go to github profile"><Github size={size}/></a></li> }
+            { props.instagram   && <li><a href={props.instagram} target="_blank" rel="noreferrer" aria-label="Go to instagram profile"><Instagram size={size}/></a></li> }
+            { props.pinterest   && <li><a href={props.pinterest} target="_blank" rel="noreferrer" aria-label="Go to pinterest profile"><PinterestP size={size} /></a></li> }
+            { props.whatsapp    && <li><a href={props.whatsapp} target="_blank" rel="noreferrer" aria-label="Go to web whatsapp message page"><Whatsapp size={size} /></a></li> }
+            { props.telegram    && <li><a href={props.telegram} target="_blank" rel="noreferrer" aria-label="Go to telegram profile"><TelegramPlane size={size}/></a></li> }
+            { props.skype       && <li><a href={props.skype} target="_blank" rel="noreferrer" aria-label="Go to skype profile"><Skype size={size}/></a></li> }
+            { props.email       && <li><a href={"mailto:"+props.email} rel="noreferrer" aria-label="Open email page or client"><Gmail size={size}/></a></li> }
+            { props.linkedin    && <li><a href={props.linkedin} target="_blank" rel="noreferrer" aria-label="Go to linkedin profile"><Linkedin size={size} /></a></li> }
         </ul>
     </IconStyleWrapper>
     )
 }
-
 export default SocialNetworks
+
+export const CardsSocialNetworks = (props) => {
+  
+    const size = props.size ? props.size : 16; 
+    
+    return (
+    <CardIconStyleWrapper size={props.size} center>
+        <ul>
+            { props.twitter     && <li><a href={props.twitter} target="_blank" rel="noreferrer" aria-label="Go to twitter profile"><Twitter size={size} /></a></li> }
+            { props.facebook    && <li><a href={props.facebook} target="_blank" rel="noreferrer" aria-label="Go to facebook profile"><FacebookF size={size} /></a></li> }
+            { props.youtube     && <li><a href={props.youtube} target="_blank" rel="noreferrer" aria-label="Go to youtube profile"><Youtube size={size} /></a></li> }
+            { props.tiktok      && <li><a href={props.tiktok} target="_blank" rel="noreferrer" aria-label="Go to tiktok profile"><LogoTiktok size={size} /></a></li> }
+            { props.github      && <li><a href={props.github} target="_blank" rel="noreferrer" aria-label="Go to github profile"><Github size={size}/></a></li> }
+            { props.instagram   && <li><a href={props.instagram} target="_blank" rel="noreferrer" aria-label="Go to instagram profile"><Instagram size={size}/></a></li> }
+            { props.pinterest   && <li><a href={props.pinterest} target="_blank" rel="noreferrer" aria-label="Go to pinterest profile"><PinterestP size={size} /></a></li> }
+            { props.whatsapp    && <li><a href={props.whatsapp} target="_blank" rel="noreferrer" aria-label="Go to web whatsapp message page"><Whatsapp size={size} /></a></li> }
+            { props.telegram    && <li><a href={props.telegram} target="_blank" rel="noreferrer" aria-label="Go to telegram profile"><TelegramPlane size={size}/></a></li> }
+            { props.skype       && <li><a href={props.skype} target="_blank" rel="noreferrer" aria-label="Go to skype profile"><Skype size={size}/></a></li> }
+            { props.email       && <li><a href={"mailto:"+props.email} rel="noreferrer" aria-label="Open email page or client"><Gmail size={size}/></a></li> }
+            { props.linkedin    && <li><a href={props.linkedin} target="_blank" rel="noreferrer" aria-label="Go to linkedin profile"><Linkedin size={size} /></a></li> }
+        </ul>
+    </CardIconStyleWrapper>
+    )
+  } 
 
 const IconStyleWrapper = styled.div`
   
@@ -69,6 +92,39 @@ const IconStyleWrapper = styled.div`
 
     &:hover {
         color: cyan;
+        transition: all 0.3s;
+    }
+  }
+`
+
+const CardIconStyleWrapper = styled.div`
+  
+  ul { 
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: ${props => props.center ? "center" : props.right ? "flex-end" : "flex-start" };
+     }
+
+  li {margin: 0px 2px;}
+  
+  ${StyledIconBase} {
+
+    color: black;
+    background-color: #ffffff00;
+    width: ${props => props.size*1.6}px;
+    height: ${props => props.size*1.6}px;
+    margin-right: ${props => props.size/8}px;
+    margin-bottom: ${props => props.size/8}px;
+    padding: ${props => props.size/3}px;
+    transition: all 0.3s;
+    border: 0;  
+
+    &:hover {
+        color: rebeccapurple;
         transition: all 0.3s;
     }
   }

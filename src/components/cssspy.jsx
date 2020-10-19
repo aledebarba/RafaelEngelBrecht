@@ -50,24 +50,7 @@ export function cssSpy() {
       function removeClass(ele, cls) {
         if (hasClass(ele, cls)) {
           var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-          ele.className = ele.className.replace(reg, " ");
-        }
-      }
-      function replaceClass(ele, oldClass, newClass) {
-        if (hasClass(ele, oldClass)) {
-          removeClass(ele, oldClass);
-          addClass(ele, newClass);
-        }
-        return;
-      }
-    
-      function toggleClass(ele, cls1, cls2) {
-        if (hasClass(ele, cls1)) {
-          replaceClass(ele, cls1, cls2);
-        } else if (hasClass(ele, cls2)) {
-          replaceClass(ele, cls2, cls1);
-        } else {
-          addClass(ele, cls1);
+          ele.className = ele.className.replace(reg, "");
         }
       }
     }

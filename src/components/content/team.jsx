@@ -1,19 +1,50 @@
 import React from 'react'
-
+import { CardDeck, UserCard } from '../cards'
 const Team = (props) => {
     return (
             <>
                 <h1>Our Team</h1>
-                <div className="row">
-                    <div className="col-sm-12 col-md-6">
-                        <h3>Colum Title</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi blanditiis et commodi sequi cupiditate. Placeat fugit beatae debitis similique pariatur odio dolorem amet ex, dolorum sapiente totam nostrum velit reiciendis autem vel deleniti! Modi, tenetur deserunt facere aspernatur laborum voluptatibus, ipsa alias quaerat reprehenderit nobis illo culpa eaque ratione sunt cumque repellendus. Omnis, velit. Et sed cumque reprehenderit quis? Repudiandae porro blanditiis dolore aspernatur cum voluptate ipsam. Rem corporis inventore dolores voluptas facilis sed, maiores reiciendis ipsum. Saepe, nisi! Aspernatur totam, sit repellat maiores tempore commodi praesentium in recusandae repudiandae officiis doloremque soluta! Quasi autem perferendis sunt amet. Nobis, recusandae!</p>
-                    </div>
-                    <div className="col-sm-12 col-md-6">
-                        <h3>Colum Title</h3>
-                        <p>Est ut nemo commodi dolores cumque voluptate praesentium perferendis culpa, veniam in fugit porro eum nihil sequi quod eligendi. Nihil soluta molestiae ratione porro qui commodi iusto reiciendis in? Officiis eveniet eaque illum. Corrupti repellat perferendis odio voluptate fugiat! Incidunt et ea vel maxime repudiandae doloremque animi est! Suscipit reiciendis quaerat ullam perspiciatis totam vero, recusandae illo, voluptatum repellat nemo incidunt fugiat natus rem quis doloremque delectus, libero debitis deleniti possimus? Omnis possimus aut ut molestias id, eaque nemo, dicta quidem, laudantium praesentium quo quibusdam laboriosam neque officiis consectetur beatae dolorem mollitia aspernatur amet sunt et accusantium! Unde, mollitia officia!</p>
-                    </div>
-                </div>
+                <CardDeck>
+                    <UserCard 
+                        image="placeHolderUser-2.jpg"
+                        title="Alexandre Macedo"
+                        subtitle="Manager"
+                        text="Anim cillum tempor voluptate incididunt commodo proident sunt nulla excepteur amet duis veniam. Non tempor est Lorem eiusmod cupidatat ipsum officia occaecat nisi."
+                        social={{
+                            twitter: "https://www.twitter.com",
+                            linkedin: "https://linkedin.com"
+                        }}/>
+
+                    <UserCard 
+                        image="placeHolderUser-4.jpg"
+                        title="Cezar Macedo" 
+                        subtitle="CEO / founder"
+                        text="Ipsum ad voluptate esse qui culpa commodo ad deserunt irure dolore qui adipisicing excepteur nulla. Velit adipisicing in cillum ad eiusmod in ad sunt esse ex occaecat.Velit adipisicing in cillum ad eiusmod in ad sunt esse ex occaecat."
+                        social={{
+                            twitter: "https://www.twitter.com",
+                            linkedin: "https://linkedin.com"
+                        }}/>
+
+                    <UserCard 
+                        image="placeHolderUser-6.jpg"
+                        title="Jane J Doe"
+                        subtitle="partner"
+                        text="Ad ullamco laboris exercitation reprehenderit occaecat laborum nulla quis culpa. Dolor sit id consequat qui aute sint id ex aute. Dolore aliquip voluptate sit commodo amet reprehenderit aliquip."
+                        social={{
+                            instagram: "https://www.twitter.com",
+                            facebook: "https://linkedin.com"
+                        }}/>
+
+                    <UserCard 
+                        image="placeHolderUser-1.jpg"
+                        title="Emma Josephinne"
+                        subtitle="lawyer"
+                        text="Ad ullamco laboris exercitation reprehenderit occaecat laborum nulla quis culpa. Dolor sit id consequat qui aute sint id ex aute. Dolore aliquip voluptate sit commodo amet reprehenderit aliquip."
+                        social={{
+                            facebook: "https://www.facebook.com",
+                            linkedin: "https://linkedin.com"
+                        }}/>
+                </CardDeck>
             </>
     )}
 export default Team
