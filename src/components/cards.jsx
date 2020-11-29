@@ -3,6 +3,9 @@ import Image from './image'
 import { CardsSocialNetworks } from './socialnetworks'
 import styled from 'styled-components'
 
+
+// bootstrap card component
+
 export const CardDeck = (props) => {
 
     const justify = props.justifyContent ? "justify-content-"+props.justifyContent : 'justify-content-center';
@@ -36,6 +39,26 @@ export const UserCard = (props) =>{
     </StyledCards>
 )}
 
+export const ServiceCard = (props) => {
+    const serviceImage = props.image ? props.image : "image-place-holder.png";
+    return (
+        <StyledCards className="col">
+            <div className="card h-100 service-card">
+            <div className="service-image">
+                <Image src={serviceImage} className="service-Image"/>
+            </div>
+            <div className="card-body">
+                <h1 className='card-title'>{props.title}</h1>
+                { props.subtitle && <h2>{props.subtitle}</h2>}
+                <p className='card-text'>{props.text}</p>
+            </div>
+            <div className="card-footer">
+                <button className="btn btn-dark">Saiba mais</button>
+            </div>
+        </div>
+        </StyledCards>
+    )
+}
 
 // local css
 const StyledCards = styled.div`
@@ -76,4 +99,10 @@ const StyledCards = styled.div`
          }
 
     } 
+
+    .service-card {
+        .service-image {
+
+        }
+    }
 `
