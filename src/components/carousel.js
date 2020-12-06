@@ -3,6 +3,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Image from './image';
+import styled from 'styled-components'
 
 const Carousel = (props) => {
 
@@ -12,6 +13,7 @@ const Carousel = (props) => {
         speed: 1500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        slidesPerRow: 1,
         autoplay: false,
         autoplaySpeed: 1500,
         easing: 'ease',
@@ -21,6 +23,8 @@ const Carousel = (props) => {
         pauseOnFocus: false,
         pauseOnDotsHover: false,
         swipeToSlide: true,
+        centerMode: false,
+        variableWidth: false,
         responsive: [
             {
               breakpoint: 768,
@@ -46,10 +50,12 @@ const Carousel = (props) => {
         display: 'none'
       }
       const images = props.images.map((imageName, index) => {
+        const isURL = (imageName.indexOf("http"))>-1 ? true : false;
         return(
-          <div key={`key${imageName}_${index}`} style={{position: 'relative'}}>
-              <Image src={imageName} alt="slide image" />
-          </div>)
+          <SlideContent key={`key${imageName}_${index}`}>
+              {!isURL &&  <Image src={imageName} alt="slide image" style={{...props.imageStyle}}/>}
+              {!!isURL && <img   src={imageName} alt="slide image" style={{...props.imageStyle}}/>}
+          </SlideContent>)
       })
 
       return (
@@ -60,3 +66,10 @@ const Carousel = (props) => {
     }
   
   export default Carousel
+
+  const SlideContent = styled.div`
+    position: relative;
+    img {
+      margin: 0 auto;
+    }
+  `

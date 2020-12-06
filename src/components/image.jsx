@@ -30,13 +30,14 @@ const Image = props => {
     const id = image.node.id;
     const imageSrc = image.node.childImageSharp.fluid;
     return (
-        <Img fluid={imageSrc} alt={props.alt} key={id}/>
+        <Img fluid={imageSrc} alt={props.alt} key={id} style={{...props.style}}/>
     )
 }
 
 Image.propTypes = {
     src: PropTypes.string.isRequired,
-    alt: PropTypes.string
+    alt: PropTypes.string,
+    style: PropTypes.object
 }
 
 export default Image
