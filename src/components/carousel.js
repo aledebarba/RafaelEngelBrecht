@@ -38,23 +38,23 @@ const Carousel = (props) => {
       };
 
       var settings = props.settings ? {...defaultSettings, ...props.settings} : defaultSettings;
-      var labelStyles = {
-        position: 'absolute',
-        bottom: 0,
-        margin: '0 0 -8px 0',
-        padding: '4px 16px',
-        borderRadius: 50,
-        backgroundColor: '#2d2d2d',
-        color: 'navajowhite',
-        fontSize: '0.7rem',
-        display: 'none'
-      }
+      // var labelStyles = {
+      //   position: 'absolute',
+      //   bottom: 0,
+      //   margin: '0 0 -8px 0',
+      //   padding: '4px 16px',
+      //   borderRadius: 50,
+      //   backgroundColor: '#2d2d2d',
+      //   color: 'navajowhite',
+      //   fontSize: '0.7rem',
+      //   display: 'none'
+      // }
       const images = props.images.map((imageName, index) => {
         const isURL = (imageName.indexOf("http"))>-1 ? true : false;
         return(
           <SlideContent key={`key${imageName}_${index}`}>
-              {!isURL &&  <Image src={imageName} alt="slide image" style={{...props.imageStyle}}/>}
-              {!!isURL && <img   src={imageName} alt="slide image" style={{...props.imageStyle}}/>}
+              {!isURL &&  <Image src={imageName} alt="item of slide" style={{...props.imageStyle}}/>}
+              {!!isURL && <img   src={imageName} alt="item of slide" style={{...props.imageStyle}}/>}
           </SlideContent>)
       })
 

@@ -26,10 +26,13 @@ const Index = (props) => {
             <h2 className="mt-5">Components</h2>
             <div className="row g-3">
                 <div className="col-sm-12 col-md-6 col-lg-4">
-                    <Link className="btn btn-primary" to="sandbox">flip-card component</Link>
+                    <Link className="btn btn-primary" to="sandbox">FlipCard component</Link>
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-4">
-                    <Link className="btn btn-primary" to="carousel-sandbox">Image Carousel</Link>
+                    <Link className="btn btn-primary" to="carousel-sandbox">Image Carousel component</Link>
+                </div>
+                <div className="col-sm-12 col-md-6 col-lg-4">
+                    <Link className="btn btn-primary" to="videoheaderexample">Video Header component</Link>
                 </div>
             </div>
         </div>

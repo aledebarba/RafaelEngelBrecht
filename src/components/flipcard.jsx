@@ -2,15 +2,17 @@ import React from "react"
 import styled from "styled-components"
 import {StarFill} from "@styled-icons/bootstrap/StarFill"
 import {Cubes} from "@styled-icons/fa-solid/Cubes"
+import {uniqueId} from '../components/utils'
 
 const Flipcard = props => {
 
-  const FrontImage = props.frontImage ? props.frontImage : Cubes; 
-  const BackImage  = props.backImage ? props.backImage : StarFill; 
-  const randomId = Math.random().toString(36).substring(2, 10) + Math.random().toString(36).substring(2, 10)
+  const FrontImage = props.frontImage ? props.frontImage : Cubes; // default front image
+  const BackImage  = props.backImage ? props.backImage : StarFill; // default front image
+  const randomId = uniqueId('flipcard-');
+
   return (
     <WithStyle style={{...props.style}}>
-      <div className="card">
+      <div className="flip-card">
         <input
           type="checkbox"
           id={randomId}
@@ -28,7 +30,7 @@ const Flipcard = props => {
                 {!!props.frontText && props.frontText }
             </div>
             <div className="card-footer">
-                <label for={randomId} aria-hidden="true" className="button">
+                <label htmlFor={randomId} aria-hidden="true" className="button">
                     {!!props.frontButton && <>props.frontButton</>}
                     {!props.frontButton && <>More Info</>}
                 </label>
@@ -42,7 +44,7 @@ const Flipcard = props => {
             { props.backTitle && <h1>{props.backTitle}</h1> }
             { props.backText && <div className="text">{props.backText}</div> }
             <div className="card-footer">
-                <label for={randomId} className="button-return">
+                <label htmlFor={randomId} className="button-return">
                   <svg viewBox="0 0 51 54" xmlns="http://www.w3.org/2000/svg" role="img" title="touch this arrow to flip the card">
                       <path d="M16 16V26.6667L0 13.3333L16 0V10.6667H29.3333C34.9913 10.6667 40.4175 12.9143 44.4183 16.9151C48.4191 20.9158 50.6667 26.342 50.6667 32C50.6667 37.658 48.4191 43.0842 44.4183 47.0849C40.4175 51.0857 34.9913 53.3333 29.3333 53.3333H5.33333V48H29.3333C33.5768 48 37.6465 46.3143 40.647 43.3137C43.6476 40.3131 45.3333 36.2435 45.3333 32C45.3333 27.7565 43.6476 23.6869 40.647 20.6863C37.6465 17.6857 33.5768 16 29.3333 16H16Z" style={{fill:"var(--back-button-icon-color)"}}/>
                   </svg>
@@ -60,6 +62,8 @@ export default Flipcard
 const WithStyle = styled.div`
 
     /* custom properties */
+
+  --card-font: Montserrat, "Open+Sans", Arial, Helvetica, sans-serif;
   --front-background: linear-gradient(135deg, #f8f8f8 35%, #c2c2c2);
   --front-text-color: #000000dd;
   --front-button-background: #000000dd;
@@ -81,10 +85,10 @@ const WithStyle = styled.div`
 
     background-color: rgba(0,0,0,0);
     box-sizing: border-box;
-    margin: 16px;
-    display: inline-block;
+    display: block;
     letter-spacing: -0.5px;
     line-height: 1.2rem;
+    margin: 0 auto;
 
     div {
         background-color: rgba(0, 0, 0, 0);
@@ -108,6 +112,7 @@ const WithStyle = styled.div`
         height: 438px;
         transform-style: preserve-3d;
         transition: transform 0.8s cubic-bezier(0.74, 0.04, 0.72, 0.83);
+        margin: 8px auto;
         
         .button,
         .button-return {
@@ -134,14 +139,14 @@ const WithStyle = styled.div`
         }
         }
         h1, h2, h3, h4, h5, h6, p, span, li, a, button {
-          font-family: Montserrat, "Open+Sans", Arial, Helvetica, sans-serif;
+          font-family: var(--card-font);
         }
         h1 {
-            margin: 0 0 16px 0;
+            margin: 8px 28px 8px 28px;
             padding: 0;
-            text-align: center;
+            text-align: left;
             line-height: 1.6rem;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: normal;
         }
 
@@ -259,5 +264,26 @@ const WithStyle = styled.div`
             z-index: 1;
         }
       }
+
+  // custom scrollbar
+  .flip-card {
+
+    scrollbar-color: #00000088 #00000022;
+    scrollbar-width: thin;
+  
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+}
 `
 
