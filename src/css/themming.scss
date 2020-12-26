@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+html {
+    //brand colors
+    --brand-primary: #0c4497;
+    --brand-secondary: #84171D;
+    --brand-terciary: #2A2EA9;
+    --brand-light: #ffdead;
+    --brand-dark: #3d3d3d; 
+    --brand-white: #F7F4F2;
+    --brand-black: #2d2d2d;
+
+    //entities
+    --button-primary-background: var(--brand-terciary);
+    --button-primary-text: var(--brand-white);
+    --button-primary-icon: var(--brand-white);
+    --link-color: var(--brand-black);
+    --link-hover-color: var(--brand-terciary);
+
+    //type
+    --font-1-name: "Open Sans";
+    --font-1-light: 300;
+    --font-1-normal: 400;
+    --font-1-bold: 900;
+    --font-1-base-size: 32px;
+  
+    --font-2-name: "Times";
+    --font-2-light: light;
+    --font-2-normal: normal;
+    --font-2-bold: bold;
+    --font-2-base-size: 32px;
+  
+    --font-1: normal normal normal 16px/20px var(--font-1-name), Trebuchet, Arial, sans-serif;
+    --font-2: normal normal normal 16px/20px var(--font-2-name), Georgia, Serif;
+
+    font: var(--font-1);
+    color: var(--brand-black);
+}
+
+p { 
+    color: var(--brand-black); 
+}
+
+h1 {
+    font: var(--font-1);
+    font-weight: var(--font-1-bold);
+    font-size: calc(var(--font-1-base-size)*1.2);
+    line-height: 2.8rem;
+    color: var(--brand-primary);
+  }
+
+h2 {
+    font-family: var(--font-1);
+    color: var(--brand-secondary);
+    font-size: calc(var(--font-1-base-size)*0.8);
+  }
+
+h3 {
+    font: var(--font-1);
+    font-size: calc(var(--font-1-base-size)*0.6);
+    font-weight: var(--font-1-bold);
+    text-transform: uppercase;
+    color: var(--brand-black);
+  }

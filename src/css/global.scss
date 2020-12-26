@@ -1,6 +1,5 @@
-
 @import './node_modules/bootstrap/scss/bootstrap-utilities.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap');
+@import './themming.scss';
 
 // sass variables form color theming
 $pageBackgroundHex : #aac8ff;
@@ -16,31 +15,12 @@ $disclaimerBackground: darken($pageBackgroundHex, 65%);
 }
 
 body {
-  --font-1-name: "Roboto";
-  --font-1-light: 300;
-  --font-1-normal: 400;
-  --font-1-bold: 900;
-  --font-1-base-size: 32px;
-
-  --font-2-name: "Times";
-  --font-2-light: light;
-  --font-2-normal: normal;
-  --font-2-bold: bold;
-  --font-2-base-size: 32px;
-
-  --font-1: normal normal normal 16px/20px var(--font-1-name), Trebuchet, Arial, sans-serif;
-  --font-2: normal normal normal 16px/20px var(--font-2-name), Georgia, Serif;
-  --font-1-color: #2b2b2b;
-  --font-1-color-light: #cfcfcf;
-  --font-2-color: rebeccapurple;
 
   --navbar-brackground-color: #00000000;
   --page-background-hex: #{$pageBackgroundHex};
  
   scroll-behavior: smooth;
   background-color:var(--page-background-hex);
-  font: var(--font-1);
-  color: var(--font-1-color);
 }
 
 .css-spy-not-scrolled {
@@ -69,24 +49,6 @@ body {
     cursor: pointer;    
   }
 
-}
-
-h1 {
-  font: var(--font-1);
-  font-weight: var(--font-1-bold);
-  font-size: calc(var(--font-1-base-size)*1.2);
-  line-height: 2.8rem;
-}
-h2 {
-  font-family: var(--font-1);
-  color: var(--font-1-color);
-  font-size: calc(var(--font-1-base-size)*0.8);
-}
-h3 {
-  font: var(--font-1);
-  font-size: calc(var(--font-1-base-size)*0.6);
-  font-weight: var(--font-1-bold);
-  text-transform: uppercase;
 }
 
 .video-container {
