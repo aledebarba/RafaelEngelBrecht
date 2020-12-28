@@ -266,7 +266,7 @@ const Index = () => {
                 Acesse os links para mais informações
               </h2>
               <div className="row">
-                <div className="col-sm-6 col-md-3">
+                <div className="col">
                   <img
                     src={require("../images/pack/logo__haoc.svg")}
                     alt="marca do Hospital Alemão Oswaldo Cruz"
@@ -299,28 +299,30 @@ const Index = () => {
                 <div className="col-sm-6 col-md-2">
                   <Image src="cta__contact.png" style={{ maxWidth: 120 }} />
                 </div>
-                <div className="col-sm-6 col-md-5">
+                <div className="col-sm-6 col-md-4">
                   <p>
                     Por favor, sinta-se a vontade para ligar em nossa clínica e
                     conversar com o pessoal da recepção. Seu atendimento será
                     rápido e atencioso. <strong>11 3995-9852</strong>
                   </p>
                 </div>
-                <div className="col-sm-6 col-md-2">
-                  <img
+                <div className="col-sm-6 col-md-3">
+                  <img className="mr-2"
                     src={require("../images/pack/icon__place.svg")}
                     alt="icone de uma marcador de localização no mapa"
                   />
-
                   <spam>
-                    Rua Pamplona, 145 cj 134 Jardim Paulista São Paulo SP
+                    R. Pamplona, 145 cj 134<br/>
+                    Jardim Paulista<br/>
+                    São Paulo SP
                   </spam>
                 </div>
                 <div className="col-sm-6 col-md-3">
-                  <button className="btn btn-primary">
+                  <button className="btn">
                     <img
                       src={require("../images/pack/icon__arrow-right-squared.svg")}
                       alt="icone de uma marcador de localização no mapa"
+                      className="mr-2"
                     />
                     <spam>Marque sua consulta</spam>
                   </button>
@@ -351,6 +353,13 @@ const WithStyle = styled.div`
     padding: 64px 16px;
   }
 
+  .btn {
+      border-radius: 100px;
+      padding: 8px 24px;
+      background-color: var(--button-primary-background);
+      color: var(--button-primary-text);
+    }
+
   .link {
     color: var(--brand-black);
     background-color: rgba(0, 0, 0, 0);
@@ -374,13 +383,6 @@ const WithStyle = styled.div`
     height: 100vh;
     background-color: var(--brand-white);
     padding-top: 80px;
-
-    .btn {
-      border-radius: 100px;
-      padding: 8px 24px;
-      background-color: var(--button-primary-background);
-      color: var(--button-primary-text);
-    }
   }
 
   #Areas {
@@ -392,6 +394,18 @@ const WithStyle = styled.div`
     h1,
     h2 {
       text-align: center;
+    }
+  }
+
+  #Publicacao {
+    box-shadow: inset 0px 4px 119px rgba(132, 23, 29, 0.27);
+  }
+  #Atendimento {
+    height: auto;
+    .calltoaction {
+      background: rgba(184, 212, 255, 0.55);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 1px 1px 2px rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(76px);
     }
   }
 
@@ -413,6 +427,12 @@ const WithStyle = styled.div`
   }
 
   #Footer {
+    background: linear-gradient(180deg, #103F86 0%, #072045 100%);
+    box-shadow: 0px -15px 73px rgba(0, 0, 0, 0.25);
+    p {
+      color: var(--brand-white);
+      padding: 16px 64px;
+      }
     .logo {
       width: 50%;
       max-width: 360px;
